@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hamburger-menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #252525;
+        }
+
+        li {
+            list-style: none;
+            /* margin: 0px 0.5rem; */
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar {
+            min-height: 8vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 1rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            gap: 4rem;
+            font-size: 1.2rem;
+            position: relative;
+            right: 30vw;
+        }
+
+        .nav-branding {
+            font-size: 2rem;
+        }
+
+        .nav-link {
+            padding: 0.3rem 0.5rem;
+            border-radius: 1em;
+            transition: 0.2s;
+        }
+
+        .nav-link:hover {
+            background-color: white;
+            border-radius: 1em;
+            color: #252525;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding-right: 1rem;
+        }
+
+        .bars {
+            display: block;
+            width: 1.5rem;
+            height: 0.2rem;
+            background-color: white;
+            margin: 0.4rem;
+            transition: 0.3s ease-in-out;
+        }
+
+        @media (max-width:800px) {
+
+            .hamburger {
+                display: block;
+            }
+            .hamburger.active .bars:nth-child(2){
+                opacity: 0;
+                
+            }
+            .hamburger.active .bars:nth-child(1){
+                transform: rotate(45deg) translateY(0.84rem);
+            }
+            .hamburger.active .bars:nth-child(3){
+                transform: rotate(-45deg) translateY(-0.84rem);
+            }
+            .nav-menu{
+                position: fixed;
+                right: -100%;
+                top:8vh;
+                gap: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: #252525;
+                transition: 0.3s;
+                text-align: center;
+            }
+            .nav-item{
+                margin: 1rem;
+            }
+            .nav-menu.active{
+                right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+    <header>
+        <nav class="navbar">
+            <a href="#" class="nav-branding">Name.</a>
+
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" class="nav-link">home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">services</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">social works</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">about us</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span class="bars"></span>
+                <span class="bars"></span>
+                <span class="bars"></span>
+            </div>
+        </nav>
+    </header>
+    <script src="script.js"></script>
+</body>
+
+</html>
